@@ -1,13 +1,28 @@
 /**
- * Created by johnson on 1/4/15.
+ * Solves Project Euler Problem Two.
  */
 public class ProjectEulerTwo {
+
+  /**
+   * Computes sum of even Fibonacci Terms less than 4 million.
+   * @param args Ignored.
+   */
   public static void main(String[] args) {
+    int sum = computeSumOfEvenFibonacciTerms(4000000);
+    System.out.println(sum);
+  }
+
+  /**
+   * Compute sum of even Fibonacci terms less than upperBound.
+   * @param upperBound The upperBound for summation.
+   * @return The sum.
+   */
+  public static int computeSumOfEvenFibonacciTerms(int upperBound) {
     int headTerm = 2;
     int tailTerm = 1;
     int sum = 0;
 
-    while (headTerm < 4000000) {
+    while (headTerm < upperBound) {
       if ((headTerm % 2) == 0) {
         sum += headTerm;
       }
@@ -16,7 +31,6 @@ public class ProjectEulerTwo {
       tailTerm = headTerm;
       headTerm = newHeadTerm;
     }
-
-    System.out.println(sum);
+    return sum;
   }
 }
